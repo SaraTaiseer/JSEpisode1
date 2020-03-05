@@ -6,6 +6,10 @@
  */
 function greet(name) {
   // Your code here
+  if (name)
+    console.log(`Hello ${name}`);
+  else 
+    console.log("Hello");
 }
 
 /**
@@ -13,8 +17,12 @@ function greet(name) {
  * - receives a number n
  * - returns true if it's odd, false otherwise
  */
+
 function isOdd(n) {
   // Your code here
+  if (n % 2 !== 0)
+    {return true;}
+  return false;
 }
 
 /**
@@ -28,8 +36,11 @@ function isOdd(n) {
  *
  * Hint: you can solve this without writing any loops!
  */
+
 function oddsSmallerThan(n) {
   // Your code here
+  return Math.floor(n/2); 
+    
 }
 
 /**
@@ -44,6 +55,9 @@ function oddsSmallerThan(n) {
  */
 function squareOrDouble(n) {
   // Your code here
+  if (isOdd(n))
+      return n*n;
+  return n*2;
 }
 
 /**
@@ -64,6 +78,16 @@ function squareOrDouble(n) {
  */
 function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
+  let y = birthDate/10000;
+  let m = (birthDate % 10000)/100;
+  let d = birthDate%100;
+  // var d1 = new Date(`${m}/${d}/${y}`);
+  var d1 = new Date(y,m,d);
+  const today = new Date();
+
+  console.log(d1);
+  console.log(today);
+  return Math.floor((today-d1)/_MS_PER_YEAR);
 
   // Your code here
 }
@@ -75,3 +99,6 @@ module.exports = {
   squareOrDouble,
   ageFromBirthDate
 };
+
+console.log(ageFromBirthDate(19970505));
+
